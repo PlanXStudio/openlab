@@ -1,0 +1,75 @@
+<main.h>
+#include <stdio.h>
+
+<main.c>
+/*app1*/
+HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+HAL_Delay(500);
+
+/*app2*/
+if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)==GPIO_PIN_SET) {
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+}
+else {
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+}
+
+/*app3*/
+int __io_putchar(int ch)
+{
+	if (ch == '\n') {
+		HAL_UART_Transmit(&huart2, (uint8_t *)"\r", 1, 0xFFFF);
+	}
+	HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
+
+	return ch;
+}
+
+uint32_t curr_time;
+
+HAL_Delay(100);
+curr_time = HAL_GetTick();
+printf("curr_time = %d\n", curr_time);
+        
+/*app4*/
+int __io_getchar(void)
+{
+	uint8_t ch = 0;
+
+	__HAL_UART_CLEAR_OREFLAG(&huart2);
+
+	HAL_UART_Receive(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
+
+	return ch;
+}
+
+uint32_t in[3];
+
+setvbuf(stdin, NULL, _IONBF, 0);
+scanf("%d %d %d",&in[0], &in[1], &in[2]);
+printf("in[0] = %d, in[1] = %d, in[2] = %d\n", in[0], in[1], in[2]);
+
+
+/*app5*/
+void EXTI9_13_IRQHandler(void)   
+{
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
+}
+
+void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
+{
+  /* EXTI line interrupt detected */
+  if (__HAL_GPIO_EXTI_GET_IT(GPIO_Pin) != 0x00u)
+  {
+    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin); // Clears The Interrupt Flag
+    HAL_GPIO_EXTI_Callback(GPIO_Pin);   // Calls The ISR Handler CallBack Function
+  }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if(GPIO_Pin == GPIO_PIN_13) // If The INT Source Is EXTI (C13 Pin)
+    {
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // Toggle The Output (LED) Pin
+    }
+}

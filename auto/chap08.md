@@ -5,8 +5,10 @@ A. 같은 패키지에서 구독과 발행
   - 노드
     - ex_pub
     - ex_sub
-```sh
 
+```python:hello.py
+ros2 pkg create --build-type ament_python --node-name ex_pub ex_topic
+touch ex_topic/ex_topic/ex_sub.py
 ```
 
 

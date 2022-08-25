@@ -2,7 +2,7 @@ a. 전역 작업 공간 설정. 이후 모든 패키지는 이 작업 공간 사
 ```sh
 mkdir -p ~/Project/auto/src
 ```
-c. argcomplete for ros2 & colcon
+b. argcomplete for ros2 & colcon
 - ~/.zshrc
 ```sh
 source /opt/ros/foxy/setup.zsh

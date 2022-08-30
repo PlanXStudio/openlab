@@ -1,15 +1,16 @@
 # Soda OS
 
-## remote desktop
-Install nomachine for Windows (https://www.nomachine.com/download/download&id=8)  
-
-## Remote SSH
-### Ethernet USB (192.168.101.120)
+## Ethernet USB (192.168.101.120)
 IP: 192.168.101.101
 ID: soda
 PW: soda
 
-### connect
+## Remote desktop
+Install nomachine for Windows (https://www.nomachine.com/download/download&id=8)  
+
+## Remote SSH
+
+### connection
 ssh soda@192.168.101.101
 
 ### ap connect

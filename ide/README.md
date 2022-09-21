@@ -20,6 +20,7 @@
 
 **Pre-install Link**
 [VSCode_1.71.2](https://koreaoffice-my.sharepoint.com/:u:/g/personal/devcamp_korea_edu/EV9A0jS501RDg65GcAWFe6gBnlVTXhIE97vqY8COArk_yg?e=GPC6jr)
+-COMMIT_ID: 74b1f979648cc44d385a2286793c226e611f59e7
 
 ## vscode-server (WSL Linux or Soda)
 1. VSCode(Windows 11) connection to WSL Linux or Soda

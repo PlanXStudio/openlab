@@ -44,12 +44,12 @@ cd ~/.vscode-server/bin/COMMIT_ID
 
 4-1. download vscode-server for WSL Linux(x64)
 ```sh
-wget --progress=bar --tries=1 --connect-timeout=7 --dns-timeout=7 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
+wget --progress=bar --tries=1 --connect-timeout=3 --dns-timeout=3 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
 ```
 
 4-2. download vscode-server for AutoCar3(arm64)
 ```sh
-wget --progress=bar --tries=1 --connect-timeout=7 --dns-timeout=7 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
+wget --progress=bar --tries=1 --connect-timeout=3 --dns-timeout=3 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
 ```
 
 5. Extract

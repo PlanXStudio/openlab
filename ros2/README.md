@@ -1,3 +1,72 @@
+# VSCode 
+
+## VSCode portable (PC)
+
+1. VSCode download
+- https://fossies.org/windows/misc/ 
+  - VSCode-win32-x64-<version>.zip
+
+2. unzip VSCode-win32-x64-<version>.zip 
+- C:\VScode
+
+3. mkdir data folder into C:\VSCode
+- C:\VScode\data
+
+4. run VSCode
+- C:\VSCode\Code.exe
+
+5. install extension
+  - Remote Development
+
+## vscode-server (WSL Linux or AutoCar3)
+1. VSCode(Windows 11) connection to WSL Linux or AutoCar3  
+2. automatic install vscode-server  
+- *download server*
+  - X64: *https://update.code.visualstudio.com/latest/server-linux-x64/stable*
+    - CONNIT_ID: https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
+
+  - ARM64: *https://update.code.visualstudio.com/latest/server-linux-arm64/stable*  
+    - CONNIT_ID: https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
+  
+**menual install** (network issue etc)  
+1. Terminal connection to WSL Linux or AutoCar3 
+2. change directory and check {commit-id}
+```sh
+ls ~/.vscode-server/bin/
+{commit-id}
+
+cd ~/.vscode-server/bin/{commit-id}
+```
+
+3-1. WSL Linux
+```sh
+COMMIT_ID={commit-di}
+wget --progress=bar --tries=1 --connect-timeout=7 --dns-timeout=7 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
+```
+
+3-2. AutoCar3
+```sh
+COMMIT_ID={commit-di}
+wget --progress=bar --tries=1 --connect-timeout=7 --dns-timeout=7 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
+```
+
+4. Extract
+```sh
+tar -xvzf --strip 1 vscode-server.tar.gz
+```
+  
+### wget option
+take over
+```sh
+-c
+```
+Show status bar only: 
+```sh
+-q --show-progress --progress=bar:force
+```
+  
+<br/>
+
 # PC to WSL Linux
 
 ## Connection

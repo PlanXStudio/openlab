@@ -54,7 +54,7 @@ wget --progress=bar --tries=1 --connect-timeout=3 --dns-timeout=3 -O vscode-serv
 
 5. Extract
 ```sh
-tar -xvzf --strip 1 vscode-server.tar.gz
+tar -xvzf vscode-server.tar.gz --strip-components 1
 ```
 
 ### wget option

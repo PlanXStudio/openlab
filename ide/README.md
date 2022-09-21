@@ -18,8 +18,8 @@
 5. install extension
   - Remote Development
 
-## vscode-server (WSL Linux or AutoCar3)
-1. VSCode(Windows 11) connection to WSL Linux or AutoCar3  
+## vscode-server (WSL Linux or Soda)
+1. VSCode(Windows 11) connection to WSL Linux or Soda
 2. automatic install vscode-server  
 - *download server*
   - X64: *https://update.code.visualstudio.com/latest/server-linux-x64/stable*
@@ -29,7 +29,7 @@
     - CONNIT_ID: https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
   
 **menual install** (network issue etc)  
-1. Terminal connection to WSL Linux or AutoCar3 
+1. Terminal connection to WSL Linux or Soda
 2. Check commit-id
 ```sh
 ls ~/.vscode-server/bin/
@@ -47,7 +47,7 @@ cd ~/.vscode-server/bin/COMMIT_ID
 wget --progress=bar --tries=1 --connect-timeout=3 --dns-timeout=3 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
 ```
 
-4-2. download vscode-server for AutoCar3(arm64)
+4-2. download vscode-server for Soda(arm64)
 ```sh
 wget --progress=bar --tries=1 --connect-timeout=3 --dns-timeout=3 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
 ```
@@ -88,10 +88,10 @@ rqt running [WSL Linux] <--------VM------> [Windows 11] Screen & Keyboard/Mouse 
 
 <br/>  
 
-# PC to AutoCar3
+# PC to Soda
 
 ## Connection
-PC(Windows 11) <-> Ethernet USB((192.168.101.120) <------SSH-----> Ethernet(192.168.101.101) <-> AutoCar3(Soda OS)
+PC(Windows 11) <-> Ethernet USB((192.168.101.120) <------SSH-----> Ethernet(192.168.101.101) <-> Soda OS
 
 *Soda OS*
 - IP: 192.168.101.101
@@ -115,9 +115,9 @@ export DISPLAY=:0
 rqt
 ```
 
-rqt running [AutoCar3] <--------**nomachine**------> [Windows 11] Screen & Keyboard/Mouse Event
+rqt running [Soda] <--------**nomachine**------> [Windows 11] Screen & Keyboard/Mouse Event
 
-## [option] AutoCar3 Wi-Fi AP connect
+## [option] Wi-Fi AP connect
 ```sh
 nmcli device wifi list
 sudo nmcli device wifi connect <ssid> password <passwd>

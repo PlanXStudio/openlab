@@ -30,31 +30,33 @@
   
 **menual install** (network issue etc)  
 1. Terminal connection to WSL Linux or AutoCar3 
-2. change directory and check {commit-id}
+2. Check commit-id
 ```sh
 ls ~/.vscode-server/bin/
-{commit-id}
+```
+*commit-id*
 
-cd ~/.vscode-server/bin/{commit-id}
+3. Set commit-id
+```sh
+COMMIT_ID=commit-id
+cd ~/.vscode-server/bin/COMMIT_ID
 ```
 
-3-1. WSL Linux
+4-1. download vscode-server for WSL Linux(x64)
 ```sh
-COMMIT_ID={commit-di}
 wget --progress=bar --tries=1 --connect-timeout=7 --dns-timeout=7 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
 ```
 
-3-2. AutoCar3
+4-2. download vscode-server for AutoCar3(arm64)
 ```sh
-COMMIT_ID={commit-di}
 wget --progress=bar --tries=1 --connect-timeout=7 --dns-timeout=7 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
 ```
 
-4. Extract
+5. Extract
 ```sh
 tar -xvzf --strip 1 vscode-server.tar.gz
 ```
-  
+
 ### wget option
 take over
 ```sh

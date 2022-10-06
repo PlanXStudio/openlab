@@ -26,12 +26,14 @@
 1. VSCode(Windows 11) connection to WSL Linux or Soda
 2. automatic install vscode-server  
 - *download server*
-  - X64: *https://update.code.visualstudio.com/latest/server-linux-x64/stable*
-    - CONNIT_ID: https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
+  - X64
+    - last: https://update.code.visualstudio.com/latest/server-linux-x64/stable
+    - CONNIT_ID use: https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-x64/stable
 
-  - ARM64: *https://update.code.visualstudio.com/latest/server-linux-arm64/stable*  
-    - CONNIT_ID: https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
-  
+  - ARM64
+    - last: https://update.code.visualstudio.com/latest/server-linux-arm64/stable
+    - CONNIT_ID use: https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-arm64/stable
+
 **menual install** (network issue etc)  
 1. Terminal connection to WSL Linux or Soda
 2. Check commit-id
@@ -42,35 +44,36 @@ ls ~/.vscode-server/bin/
 
 3. Set commit-id
 ```sh
-COMMIT_ID=commit-id
-cd ~/.vscode-server/bin/COMMIT_ID
+COMMIT_ID=$(ls ~/.vscode-server/bin)
+```
+*or*
+```sh
+COMMIT_ID=$(ls -tral -1 ~/.vscode-server/bin | sed -n '3p' | rev | cut -d' ' -f1 | rev)
 ```
 
-4-1. download vscode-server for WSL Linux(x64)
 ```sh
-wget --progress=bar --tries=1 --connect-timeout=3 --dns-timeout=3 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-x64/stable
+cd ~/.vscode-server/bin/$COMMIT_ID
+```
+4. Download vscode-server
+**WSL Linux(x64)**
+```sh
+wget -q --show-progress --progress=bar:force -retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -c -t 0 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-x64/stable
 ```
 
-4-2. download vscode-server for Soda(arm64)
+**Soda(arm64)**
 ```sh
-wget --progress=bar --tries=1 --connect-timeout=3 --dns-timeout=3 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:${COMMIT_ID}/server-linux-arm64/stable
+wget -q --show-progress --progress=bar:force -retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -c -t 0 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-arm64/stable
 ```
+
+**Pre-install Link for Soda(arm64)**
+[vscode-server.tar.gz](https://koreaoffice-my.sharepoint.com/:u:/g/personal/devcamp_korea_edu/EaqBzKL12IxKvgcmJS_baZQBEcg0as0huHlfyibw4AtpOw?e=WtzrXz)
+-for VSCode_1.71.2 (COMMIT_ID: 74b1f979648cc44d385a2286793c226e611f59e7)
 
 5. Extract
 ```sh
 tar -xvzf vscode-server.tar.gz --strip-components 1
 ```
 
-### wget option
-take over
-```sh
--c
-```
-Show status bar only: 
-```sh
--q --show-progress --progress=bar:force
-```
-  
 <br/>
 
 # PC to WSL Linux

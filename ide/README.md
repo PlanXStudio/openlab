@@ -2,20 +2,22 @@
 
 ## VSCode portable (PC)
 
-1. VSCode download
-- https://fossies.org/windows/misc/ 
-  - VSCode-win32-x64-<version>.zip
+a. VSCode download
+- origin
+  - https://code.visualstudio.com/Download#  > Windows > .zip > 64 bit
+- backup
+  - https://fossies.org/windows/misc/ > VSCode-win32-x64-<x.y.z>.zip
 
-2. unzip VSCode-win32-x64-<version>.zip 
+b. unzip VSCode-win32-x64-<x.y.z>.zip 
 - C:\VScode
 
-3. mkdir data folder into C:\VSCode
+c. mkdir data folder into C:\VSCode
 - C:\VScode\data
 
-4. run VSCode
+d. run VSCode
 - C:\VSCode\Code.exe
 
-5. install extension
+e. install extension
   - Remote Development
 
 **Pre-install Link**
@@ -54,7 +56,8 @@ COMMIT_ID=$(ls -tral -1 ~/.vscode-server/bin | sed -n '3p' | rev | cut -d' ' -f1
 ```sh
 cd ~/.vscode-server/bin/$COMMIT_ID
 ```
-4. Download vscode-server
+4. Download vscode-server  
+
 **WSL Linux(x64)**
 ```sh
 wget -q --show-progress --progress=bar:force -retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -c -t 0 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-x64/stable

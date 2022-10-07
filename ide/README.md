@@ -1,84 +1,5 @@
 # VSCode 
 
-## VSCode portable (PC)
-
-a. VSCode download
-- origin
-  - https://code.visualstudio.com/Download#  > Windows > .zip > 64 bit
-- backup
-  - https://fossies.org/windows/misc/ > VSCode-win32-x64-<x.y.z>.zip
-
-b. unzip VSCode-win32-x64-<x.y.z>.zip 
-- C:\VScode
-
-c. mkdir data folder into C:\VSCode
-- C:\VScode\data
-
-d. run VSCode
-- C:\VSCode\Code.exe
-
-e. install extension
-  - Remote Development
-
-**Pre-install Link**
-[VSCode_1.71.2](https://koreaoffice-my.sharepoint.com/:u:/g/personal/devcamp_korea_edu/EV9A0jS501RDg65GcAWFe6gBnlVTXhIE97vqY8COArk_yg?e=GPC6jr)
--COMMIT_ID: 74b1f979648cc44d385a2286793c226e611f59e7
-
-## vscode-server (WSL Linux or Soda)
-1. VSCode(Windows 11) connection to WSL Linux or Soda
-2. automatic install vscode-server  
-- *download server*
-  - X64
-    - last: https://update.code.visualstudio.com/latest/server-linux-x64/stable
-    - CONNIT_ID use: https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-x64/stable
-
-  - ARM64
-    - last: https://update.code.visualstudio.com/latest/server-linux-arm64/stable
-    - CONNIT_ID use: https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-arm64/stable
-
-**menual install** (network issue etc)  
-1. Terminal connection to WSL Linux or Soda
-2. Check commit-id
-```sh
-ls ~/.vscode-server/bin/
-```
-*commit-id*
-
-3. Set commit-id
-```sh
-COMMIT_ID=$(ls ~/.vscode-server/bin)
-```
-*or*
-```sh
-COMMIT_ID=$(ls -tral -1 ~/.vscode-server/bin | sed -n '3p' | rev | cut -d' ' -f1 | rev)
-```
-
-```sh
-cd ~/.vscode-server/bin/$COMMIT_ID
-```
-4. Download vscode-server  
-
-**WSL Linux(x64)**
-```sh
-wget -q --show-progress --progress=bar:force -retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -c -t 0 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-x64/stable
-```
-
-**Soda(arm64)**
-```sh
-wget -q --show-progress --progress=bar:force -retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -c -t 0 -O vscode-server.tar.gz https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-arm64/stable
-```
-
-**Pre-install Link for Soda(arm64)**
-[vscode-server.tar.gz](https://koreaoffice-my.sharepoint.com/:u:/g/personal/devcamp_korea_edu/EaqBzKL12IxKvgcmJS_baZQBEcg0as0huHlfyibw4AtpOw?e=WtzrXz)
--for VSCode_1.71.2 (COMMIT_ID: 74b1f979648cc44d385a2286793c226e611f59e7)
-
-5. Extract
-```sh
-tar -xvzf vscode-server.tar.gz --strip-components 1
-```
-
-<br/>
-
 # PC to WSL Linux
 
 ## Connection
@@ -98,7 +19,7 @@ rqt running [WSL Linux] <--------VM------> [Windows 11] Screen & Keyboard/Mouse 
 
 <br/>  
 
-# PC to Soda
+# PC to Soda (arm64)
 
 ## Connection
 PC(Windows 11) <-> Ethernet USB((192.168.101.120) <------SSH-----> Ethernet(192.168.101.101) <-> Soda OS
@@ -133,3 +54,75 @@ nmcli device wifi list
 sudo nmcli device wifi connect <ssid> password <passwd>
 sudo nmcli connect delete <ssid>
 ```
+
+## VSCode portable (PC)
+
+a. VSCode download (Last Version)
+- origin
+  - https://code.visualstudio.com/Download#  > Windows > .zip > 64 bit
+- backup
+  - https://fossies.org/windows/misc/ > VSCode-win32-x64-<x.y.z>.zip
+
+b. unzip VSCode-win32-x64-<x.y.z>.zip 
+- C:\VScode
+
+c. mkdir data folder into C:\VSCode
+- C:\VScode\data
+
+d. run VSCode
+- C:\VSCode\Code.exe
+
+e. install extension
+  - Remote Development
+
+**Pre-install Link**
+[VSCode_1.72.0](https://koreaoffice-my.sharepoint.com/:u:/g/personal/devcamp_korea_edu/EfKKdu6ECGdGoa6KfYMvl5cB7t8Svh6ccIeQSJoVBj4W2A?e=uSRRSK)
+-COMMIT_ID: 64bbfbf67ada9953918d72e1df2f4d8e537d340e
+
+## Remote development environment (WSL Linux or Soda)
+a. Connection to WSL Linux (WSL) or Soda (SSH)
+b. automatic install vscode-server  
+- *download server*
+  - X64
+    - last: https://update.code.visualstudio.com/latest/server-linux-x64/stable
+  - ARM64
+    - last: https://update.code.visualstudio.com/latest/server-linux-arm64/stable
+  - COMMIT ID
+    -latest to commit:$COMMIT_ID (ex: https://update.code.visualstudio.com/commit:$COMMIT_ID...)
+
+**menual install** (network issue etc)  
+a. Check commit-id
+   - Run CMD or PowerShell
+```sh
+cd C:\VSCode\bin
+./code --version | wsl sed -n '2p'
+```
+>> ex) 64bbfbf67ada9953918d72e1df2f4d8e537d340e
+
+b. Download vscode-server  
+   - Run wsl linux  
+
+**WSL Linux**
+```sh
+wget -q --show-progress --progress=bar:force --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -c -t 0 -O vscode-server.tar.gz https://update.code.visualstudio.com/latest/server-linux-x64/stable
+```
+
+**Soda (arm64)**
+```sh
+wget -q --show-progress --progress=bar:force --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -c -t 0 -O vscode-server.tar.gz https://update.code.visualstudio.com/latest/server-linux-arm64/stable
+```
+
+c. Extract vscode-server (WSL Linux or Soda)
+```sh
+mkdir -p ~/.vscode-server/bin/<commit-id>
+mv vscode-server.tar.gz ~/.vscode-server/bin/<commit-id>
+tar -xvzf vscode-server.tar.gz --strip-components 1
+rm -rf vscode-server.tar.gz
+```
+
+**Pre-install Link**
+[Soda(arm64)](https://koreaoffice-my.sharepoint.com/:u:/g/personal/devcamp_korea_edu/EaqBzKL12IxKvgcmJS_baZQBEcg0as0huHlfyibw4AtpOw?e=cUZKcr)
+-for VSCode_1.72.0
+
+<br/>
+

@@ -71,3 +71,22 @@ car.alarm(scale=4,pitch=8,duration=0.5)
 sleep(0.5)
 car.alarm(scale=4,pitch=8,duration=0.01)
 ```
+
+### 
+```python
+from pop.Pilot import AutoCar
+from time import sleep
+
+car = AutoCar()
+car.setSensorStatus(euler=1)
+car.forward(80)
+car.steering = 0.0
+
+for i in range(100):
+    eu = car.getEuler()
+    sleep(0.1)
+    print(eu)
+
+car.setSensorStatus(euler=0)
+car.stop()
+```

@@ -196,7 +196,7 @@ MyDrive로 가져왔을 경우 Google Drive 페이지에서 Track_Follow_Model.i
 
 ## 모델 확인하기
 
-**Track_model_S.h5** 를 우클릭하여 pc에 다운로드 받은 후 AutoCar3의 작업공간에 업로드합니다.
+**Track_model_S.h5** 를 우클릭하여 pc에 다운로드 받은 후 AutoCar3의 작업공간에 업로드합니다.  
 ![ex_screenshot](./res/track/20.png)
 
 업로드가 완료되었으면 다음과 같이 코드를 입력하고 실행하여 모델을 검증합니다.
@@ -210,7 +210,7 @@ MyDrive로 가져왔을 경우 Google Drive 페이지에서 Track_Follow_Model.i
   tf.show()
 ```
 
-tf.run의 x 값과 tf.show()의 이미지를 비교하여 tf.run의 x 값이 타당한지 확인합니다. tf.run의 x 값이 양수이면 조향이 오른쪽이고 음수이면 왼쪽입니다. 또한 그 값이 클수록 조향각도 커집니다.
+tf.run의 x 값과 tf.show()의 이미지를 비교하여 tf.run의 x 값이 타당한지 확인합니다. tf.run의 x 값이 양수이면 조향이 오른쪽이고 음수이면 왼쪽입니다. 또한 그 값이 클수록 조향각도 커집니다.  
 ![ex_screenshot](./res/track/21.png)
 
 tf.run 값이 타당하다고 생각되면 다음 셀에 다음과 같은 명령어를 입력하고 실행하여 트랙 자율주행을 시작합니다.

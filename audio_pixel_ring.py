@@ -127,7 +127,6 @@ class AudioPixelRing:
       
         self.__write(4)
         if palette:
-
             self.__palette(*palette)
 
     def spin(self, *color):

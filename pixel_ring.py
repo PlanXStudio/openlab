@@ -4,12 +4,12 @@ import usb.util
 VID = 0x2886
 PID = 0x0018
 
-class FoundNotAudio(Exception): pass
+class FoundNotPixelRing(Exception): pass
 
 hex2rgb = lambda n: ((n >> 16) & 0xFF, (n >> 8) & 0xFF, n & 0xFF)
 rgb2invert = lambda r, g, b: (~r & 0xFF, ~g & 0xFF, ~b & 0xFF)
 
-class AudioPixelRing:
+class PixelRing:
 
     def __init__(self, brightness=10):
         """AudioPixelRing 객체 생성
@@ -24,7 +24,7 @@ class AudioPixelRing:
 
         self.dev = usb.core.find(idVendor=VID, idProduct=PID)
         if not self.dev:
-            raise FoundNotAudio
+            raise FoundNotPixelRing
         self.brightness(brightness)
 
     def __del__(self):

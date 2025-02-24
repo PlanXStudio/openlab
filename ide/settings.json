@@ -1,0 +1,24 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.mouseWheelZoom": true,
+    "terminal.integrated.mouseWheelZoom": true,
+    "window.commandCenter": false,
+    "terminal.integrated.env.windows": { 
+        "PATH": "${execPath}\\..\\bin;${execPath}\\..\\data\\lib\\python;${execPath}\\..\\data\\lib\\python\\Scripts;${env:PATH}",
+        "VSCODE_PATH": "${execPath}\\.."
+    },
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "ayu",
+    "workbench.tree.indent": 24,
+    "editor.fontFamily": "'0xProto Nerd Font', 달서힐링체",
+    "python.createEnvironment.trigger": "off",
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.startupPrompt": "never",
+    "update.enableWindowsBackgroundUpdates": false,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "markdown.updateLinksOnFileMove.enabled": "always",
+    "update.mode": "none",
+    "editor.minimap.enabled": false,
+}
